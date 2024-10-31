@@ -1,20 +1,9 @@
-
-
-import Image from "next/image";
+import React from 'react'
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/components/ui/card"
 import { Input } from "@/components/ui/input";
 import { AvatarFallback } from "@radix-ui/react-avatar";
-import { TrendingUp, User, CreditCard, Activity } from "lucide-react";
-
-
-import {
-  ChartConfig,
-  ChartContainer,
-  ChartTooltip,
-  ChartTooltipContent,
-} from "@/components/ui/chart"
 import {
   Tabs,
   TabsContent,
@@ -22,16 +11,16 @@ import {
   TabsTrigger,
 } from "@/components/ui/tabs"
 
+import { TrendingUp, User, CreditCard, Activity } from "lucide-react";
 
 
-export default function Home() {
-  
+export default function DashboardPage (){
   return (
-    <div className="flex min-h-screen bg-slate-50 items-center justify-center">
+    <div className="flex min-h-screen bg-white items-center justify-center">
       <Card className="w-[1024px] h-[700px] grid grid-rows-[min-content_1fr_min-content]">
         <CardHeader>
-          <CardTitle>Dashboard</CardTitle>
-          <CardDescription>Está é a dashboard de administrador</CardDescription>
+          <CardTitle>Plano</CardTitle>
+          <CardDescription>Estado atual e lembretes</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="flex gap-3 text-slate-600 text-sm">
@@ -106,11 +95,27 @@ export default function Home() {
             
           </div>
             
+          <div className="flex gap-3 py-10 text-slate-600 text-sm">
+            <Avatar>
+              <AvatarFallback>JB</AvatarFallback>
+              <AvatarImage src="https://avatars.githubusercontent.com/u/77748663?s=400&u=faa3bf00ce4ca90f811073e371f28f9f5492ae1c&v=4"/>
+            </Avatar>
+            <p className="leading-relaxed">
+              <span className="block font-bold text-slate-700">Lembrete</span>
+              Verificar os stocks de produtos no armazem de ferramentas!
+            </p>
+          </div>
+            
         </CardContent>
+
+        <CardFooter className="space-x-2">
+          <Input placeholder="Adicionar um lembrete" />
+          <Button type="submit">Enviar</Button>
+        </CardFooter>
+
         
       </Card>
 
     </div>
-    
-  );
+  )
 }
