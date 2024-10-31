@@ -12,31 +12,26 @@ type FormInputs = {
 };
 
 const SignupPage = () => {
-    const register = async () => {
-        try {
-          const res = await fetch(Backend_URL + "/auth/register", {
-            method: "POST",
-            body: JSON.stringify({
-              name: data.current.name,
-              email: data.current.email,
-              password: data.current.password,
-            }),
-            headers: {
-              "Content-Type": "application/json",
-            },
-          });
-          if (!res.ok) {
-            alert(`Erro: ${res.statusText}`);
-            return;
-          }
-          const response = await res.json();
-          alert("Usuario Registado!");
-          console.log({ response });
-        } catch (error) {
-          console.error("Falha a registar usuario:", error);
-          alert("Falha a registar usuario. Veja a consola para mais detalhes.");
-        }
-      };
+  const register = async () => {
+    const res = await fetch(Backend_URL + "/auth/register", {
+      method: "POST",
+      body: JSON.stringify({
+        name: data.current.name,
+        email: data.current.email,
+        password: data.current.password,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (!res.ok) {
+      alert(res.statusText);
+      return;
+    }
+    const response = await res.json();
+    alert("Usuario Registrado!");
+    console.log({ response });
+  };
   const data = useRef<FormInputs>({
     name: "",
     email: "",

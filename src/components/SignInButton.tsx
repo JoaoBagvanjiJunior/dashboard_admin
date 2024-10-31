@@ -34,7 +34,7 @@ const SignInButton = () => {
                 <Link href={"/api/auth/signin"} className='flex gap-4 ml-auto'>
                     <Button className="bg-white text-black hover:bg-gray-400 transition-colors">Sign In</Button>
                 </Link>
-                <Link href={"/signup"} className='flex gap-4 mr-auto'>
+                <Link href={"/signup"} className='flex gap-4 ml-auto'>
                     <Button className="bg-black text-white">Sign Up</Button>
                 </Link>
             </div>
